@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Barlow Semi Condensed" rel="stylesheet">
   <title>Rock, Paper, Scissors</title>
@@ -9,8 +10,8 @@
 <body>
   <table id="headerTable">
     <tr>
-      <td><img src="images/logo.svg" alt="Logo"></td>
-      <td style="width: 50%;">
+      <td><img id="logo" src="images/logo.svg" alt="Logo"></td>
+      <td>
         <table id="scoreTable">
           <tr>
             <td id="scoreLabel">SCORE</td>
@@ -23,62 +24,70 @@
     </tr>
   </table>
 
+  <br>
 
+  <!--- <div style="background-color: red; width: 100%; margin-left: -8px;">
+  100%
+  </div>
 
-<br>
-<br>
-<br>
+  <div style="background-color: red; width: 1001px; margin-left: -8px;">
+  1001px
+  </div>
 
+  <div style="background-color: red; width: 1000px; margin-left: -8px;">
+1000px
+</div> --->
 
-  <table id="shapeChoiceTable" class="centeredByMargins" style="width: 50%;">
+  <table id="shapeChoiceTable" class="centeredByMargins">
     <tr>
-      <td style="text-align: center; padding: 15px;">
-        <div class="doubleBorder" style="text-align: center; border-color: hsl(349, 71%, 52%);">
-          <img class="shapeIcon" onClick="rockSelectedEvent()" src="images/icon-rock.svg" alt="Rock">
+      <td style="text-align: left;">
+        <div onClick="shapeSelectedEvent('ROCK')" class="shapeDoubleBorder" style="border-color: hsl(349, 71%, 52%);">
+          <img class="shapeIcon" src="images/icon-rock.svg" alt="Rock">
         </div>
       </td>
-      <td style="text-align: center; padding: 15px;">
-        <div class="doubleBorder" style="text-align: center; border-color: hsl(230, 89%, 62%);">
-          <img class="shapeIcon" onClick="paperSelectedEvent()" src="images/icon-paper.svg" alt="Paper">
+      <td style="text-align: right;">
+        <div onClick="shapeSelectedEvent('PAPER')" class="shapeDoubleBorder" style="border-color: hsl(230, 89%, 62%);">
+          <img class="shapeIcon" src="images/icon-paper.svg" alt="Paper">
         </div>
       </td>
     </tr>
     <tr>
-      <td colspan=2 style="text-align: center; padding: 15px;">
-        <div class="doubleBorder" style="text-align: center; border-color: hsl(39, 89%, 49%);">
-          <img class="shapeIcon" onClick="scissorsSelectedEvent()" src="images/icon-scissors.svg" alt="Scissors">
+      <td colspan=2 style="text-align: center; padding-top: 0px;">
+        <div onClick="shapeSelectedEvent('SCISSORS')" class="shapeDoubleBorder" style="border-color: hsl(39, 89%, 49%);">
+          <img class="shapeIcon" src="images/icon-scissors.svg" alt="Scissors">
         </div>
       </td>
     </tr>
   </table>
-</body>
 
 
-<table id="outcomeTable" class="centeredByMargins" style="width: 50%; visibility: hidden;">
+
+<table id="outcomeTable" class="centeredByMargins">
+  <tr>
+    <td style="text-align: center; color: white;">YOU PICKED</td>
+    <td id="blankCellBetweenOutcomeChoiceLabels"></td>
+    <td style="text-align: center; color: white;">THE HOUSE PICKED</td>
+  </tr>
   <tr>
     <td style="text-align: center;">
-      <div id="playersShapeBorder" class="doubleBorder" style="text-align: center;">
-        <img id="playersShape" class="shapeIcon" alt="Rock">
+      <div id="playersShapeBorder" class="shapeDoubleBorder">
+        <img id="playersShape" class="shapeIcon">
       </div>
     </td>
-    <td id="outcomeAnnouncmentCell" style="text-align: center; transform: scale(0); border: none;">
+    <td id="outcomeAnnouncmentCell" style="text-align: center;">
       <span id="outcomeAnnouncment"></span>
       <br>
       <br>
       <button id="restartButton" onClick="restartGame()" type="button">PLAY AGAIN</button>
     </td>
-    <td style="text-align: center; width: 33%;">
-      <div id="computersShape_div" class="computersShapeCircle" style="text-align: center;">
-        <img id="computersShape" class="shapeIcon" alt="Paper" style="display: none;">
+    <td style="text-align: center; width: 260px;">
+      <div id="computersShape_div" class="shapePlaceholder" style="text-align: center;">
+        <img id="computersShape" class="shapeIcon" style="display: none;">
       </div>
     </td>
-  </tr>
-  <tr>
-    <td style="text-align: center; color: white;">YOU PICKED</td>
-    <td></td>
-    <td style="text-align: center; color: white;">THE HOUSE PICKED</td>
   </tr>
 </table>
 
 <script src="main.js"></script>
+</body>
 </html>
