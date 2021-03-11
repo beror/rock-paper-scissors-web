@@ -53,6 +53,18 @@ body {
   visibility: hidden;
 }
 
+#outcomeTable tr:first-child td {
+  padding-bottom: 35px;
+}
+
+#outcomeTable tr:nth-child(1) td:first-child, #outcomeTable tr:nth-child(2) td:first-child {
+  padding-right: 20px;
+}
+
+#outcomeTable tr:nth-child(1) td:last-child, #outcomeTable tr:nth-child(2) td:last-child {
+  padding-left: 20px;
+}
+
 #outcomeAnnouncmentCell {
   transition: 1s;
   transform: scale(0);
@@ -87,7 +99,7 @@ body {
 .shapeIcon {
   background-color: white;
   position: absolute;
-  width: 85px;
+  width: 70px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -99,8 +111,8 @@ body {
   display: inline-block;
   position: relative;
   background-color: white;
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   border-width: 30px;
   border-style: solid;
   border-radius: 50%;
@@ -109,7 +121,22 @@ body {
   transition: transform 0.2s;
 }
 
-@media only screen and (max-width: 590px), (max-height: 810px) {
+#outcomeTable .shapeDoubleBorder {
+  cursor: default;
+}
+
+#outcomeTable .shapeDoubleBorder:hover {
+  transform: none;
+}
+
+.choiceLabels {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 640px), (max-height: 750px) {
   #headerTable {
     width: 350px;
   }
@@ -119,7 +146,7 @@ body {
   }
 
   #scoreTable {
-    width: 100px;
+    width: 115px;
   }
 
   #scoreLabel {
@@ -139,6 +166,15 @@ body {
     min-width: 355px;
   }
 
+  #outcomeTable tr:nth-child(1) td:first-child, #outcomeTable tr:nth-child(2) td:first-child {
+    padding-right: 10px;
+  }
+
+  #outcomeTable tr:nth-child(1) td:last-child, #outcomeTable tr:nth-child(2) td:last-child {
+    padding-left: 10px;
+  }
+
+
   .shapeIcon {
     width: 60px;
   }
@@ -147,7 +183,11 @@ body {
     width: 115px;
     height: 115px;
     border-width: 20px;
-    box-shadow: 0px 5px rgba(189, 194, 214, 0.7) inset;
+    box-shadow: 0px 7px rgba(189, 194, 214, 0.7) inset;
+  }
+
+  .choiceLabels {
+    font-size: 20px;
   }
 }
 

@@ -22,8 +22,8 @@ else score = 0;
 const winnerHighlightBoxShadow = "0px 8px rgba(189, 194, 214, 0.7) inset, 0 0 0 20px rgba(255, 255, 255, 0.05), 0 0 0 70px rgba(255, 255, 255, 0.03), 0 0 0 120px rgba(255, 255, 255, 0.01)";
 document.getElementById("score").innerHTML = score;
 
-let narrowerThan805pxQuery = window.matchMedia("(max-width: 805px)");
-narrowerThan805pxQuery.addEventListener("change", adaptOutcomeTableToScreen);
+let narrowerThan985pxQuery = window.matchMedia("(max-width: 985px)");
+narrowerThan985pxQuery.addEventListener("change", adaptOutcomeTableToScreen);
 adaptOutcomeTableToScreen();
 
 function shapeSelectedEvent(shape) {
@@ -73,8 +73,6 @@ function moveOutcomeAnnounementBelowShapes() {
   let newRow = outcomeTable.insertRow(-1);
   newRow.appendChild(document.getElementById("outcomeAnnouncmentCell")).colSpan = "2";
   document.getElementById("blankCellBetweenOutcomeChoiceLabels").style.display = "none";
-  outcomeTable.rows[1].cells[0].style.paddingRight = "20px";
-  outcomeTable.rows[1].cells[outcomeTable.rows[1].cells.length - 1].style.paddingLeft = "20px";
 }
 
 function insertOutcomeAnnounementBetweenShapes() {
@@ -86,7 +84,7 @@ function insertOutcomeAnnounementBetweenShapes() {
 }
 
 function adaptOutcomeTableToScreen() {
-  if(narrowerThan805pxQuery.matches) {
+  if(narrowerThan985pxQuery.matches) {
     moveOutcomeAnnounementBelowShapes();
   } else {
     insertOutcomeAnnounementBetweenShapes();
@@ -118,16 +116,16 @@ function processOutcome(playersShape, computersShape) {
     console.log("Player wins. Computer chose " + computersShape + ", the player chose " + playersShape);
     document.getElementById("outcomeAnnouncment").innerHTML = "YOU WIN";
     setTimeout(function() {
+      document.getElementById("score").innerHTML = ++score;
       document.getElementById("playersShapeBorder").style.boxShadow = winnerHighlightBoxShadow;
-    }, 1500);
-    document.getElementById("score").innerHTML = ++score;
+    }, 1000);
   } else {
     console.log("Computer wins. Computer chose " + computersShape + ", the player chose " + playersShape);
     document.getElementById("outcomeAnnouncment").innerHTML = "YOU LOSE";
     setTimeout(function() {
+      document.getElementById("score").innerHTML = --score;
       document.getElementById("computersShape_div").style.boxShadow = winnerHighlightBoxShadow;
-    }, 1500);
-    document.getElementById("score").innerHTML = --score;
+    }, 1000);
   }
 
   document.getElementById("outcomeAnnouncmentCell").classList.add("scaleIn");
