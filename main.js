@@ -118,15 +118,17 @@ function processOutcome(playersShape, computersShape) {
     setTimeout(function() {
       document.getElementById("score").innerHTML = ++score;
       document.getElementById("playersShapeBorder").style.boxShadow = winnerHighlightBoxShadow;
-    }, 1000);
+    }, 1400);
   } else {
     console.log("Computer wins. Computer chose " + computersShape + ", the player chose " + playersShape);
     document.getElementById("outcomeAnnouncment").innerHTML = "YOU LOSE";
     setTimeout(function() {
       document.getElementById("score").innerHTML = --score;
       document.getElementById("computersShape_div").style.boxShadow = winnerHighlightBoxShadow;
-    }, 1000);
+    }, 1400);
   }
 
-  document.getElementById("outcomeAnnouncmentCell").classList.add("scaleIn");
+  setTimeout(function() {
+    document.getElementById("outcomeAnnouncmentCell").classList.add("scaleIn");
+  }, 700);
 }

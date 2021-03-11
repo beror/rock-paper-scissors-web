@@ -66,7 +66,6 @@ body {
 }
 
 #outcomeAnnouncmentCell {
-  transition: 1s;
   transform: scale(0);
   white-space: nowrap;
 }
@@ -205,6 +204,6 @@ body {
 }
 
 .scaleIn {
-  transition: 1s;
+  transition: 0.7s;
   transform: scale(1) !important;
 }
