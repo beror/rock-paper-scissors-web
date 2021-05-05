@@ -16,10 +16,6 @@ const shapeOutlineColors = {
   SCISSORS: "hsl(39, 89%, 49%)"
 }
 
-var score;
-if (sessionStorage.getItem("score") !== null) score = sessionStorage.getItem("score");
-else score = 0;
-document.getElementById("score").innerHTML = score;
 const winnerHighlightBoxShadow = "0px 8px rgba(189, 194, 214, 0.7) inset, 0 0 0 20px rgba(255, 255, 255, 0.05), 0 0 0 70px rgba(255, 255, 255, 0.03), 0 0 0 120px rgba(255, 255, 255, 0.01)";
 
 let narrowerThan985pxQuery = window.matchMedia("(max-width: 985px)");

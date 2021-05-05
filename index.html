@@ -18,6 +18,12 @@
           </tr>
           <tr>
             <td id="score">0</td>
+            <script type="text/javascript">
+              var score;
+              if (sessionStorage.getItem("score") !== null) score = sessionStorage.getItem("score");
+              else score = 0;
+              document.getElementById("score").innerHTML = score;
+            </script>
           </tr>
         </table>
       </td>
